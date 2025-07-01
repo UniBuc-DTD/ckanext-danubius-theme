@@ -6,9 +6,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    container:
-      image: ckan/ckan-dev:2.11
-
     services:
       solr:
         image: ckan/ckan-solr:2.11-solr9
@@ -33,15 +30,17 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
+      - name: Install CKAN
+        run: |
+          pip install -e 'git+https://github.com/ckan/ckan.git@ckan-2.11.3#egg=ckan[requirements]'
+
       - name: Install requirements
-        # Install any extra requirements your extension has here (dev requirements, other extensions etc)
         run: |
           pip install -r requirements.txt
           pip install -r dev-requirements.txt
           pip install -e .
 
       - name: Setup extension
-        # Extra initialization steps
         run: |
           # Replace default path to CKAN core config file with the one on the container
           sed -i -e 's/use = config:.*/use = config:\/srv\/app\/src\/ckan\/test-core.ini/' test.ini
