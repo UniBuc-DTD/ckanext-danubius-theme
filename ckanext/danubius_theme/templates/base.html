@@ -1,0 +1,8 @@
+{% ckan_extends %}
+
+{% block styles %}
+  {{ super() }}
+
+  {# Import danubius_theme.css using Webassets. #}
+  {% asset 'danubius_theme/danubius-theme-css' %}
+{% endblock %}
