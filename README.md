@@ -1,4 +1,4 @@
-[![Tests](https://github.com/UniBuc-DTD/ckanext-danubius-theme/workflows/Tests/badge.svg?branch=main)](https://github.com/UniBuc-DTD/ckanext-danubius-theme/actions)
+[![CI](https://github.com/UniBuc-DTD/ckanext-danubius-theme/workflows/Continuous%20Integration/badge.svg?branch=main)](https://github.com/UniBuc-DTD/ckanext-danubius-theme/actions)
 
 # DANUBIUS CKAN Theme
 
