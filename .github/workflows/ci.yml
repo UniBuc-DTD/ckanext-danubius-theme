@@ -6,6 +6,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    container:
+      image: ckan/ckan-dev:2.11
+      options: --user root
+
     services:
       solr:
         image: ckan/ckan-solr:2.11-solr9
@@ -15,9 +19,13 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: postgres
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
       redis:
-        image: redis:7
+        image: redis:8
 
     env:
       CKAN_SQLALCHEMY_URL: postgresql://ckan_default:pass@postgres/ckan_test
@@ -29,10 +37,6 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
-
-      - name: Install CKAN
-        run: |
-          pip install -e 'git+https://github.com/ckan/ckan.git@ckan-2.11.3#egg=ckan[requirements]'
 
       - name: Install requirements
         run: |
