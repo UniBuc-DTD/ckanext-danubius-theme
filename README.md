@@ -10,6 +10,9 @@ Requires the latest (stable) version of CKAN, which at the time of writing is CK
 
 ## Installation
 
+Note that some of the components of this theme (e.g. the search page) rely on having the [`ckanext-spatial`](https://docs.ckan.org/projects/ckanext-spatial/en/latest/) plugin active.
+Please see [the `ckanext-spatial` installation instructions](https://docs.ckan.org/projects/a-spatial/en/latest/install/) for guidance.
+
 To install `ckanext-danubius-theme`:
 
 1. Activate your CKAN virtual environment, for example:
