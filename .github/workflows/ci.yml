@@ -42,6 +42,8 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install -r dev-requirements.txt
+          pip install -e "git+https://github.com/ckan/ckanext-spatial.git#egg=ckanext-spatial"
+          pip install -r /srv/app/src/ckanext-spatial/requirements.txt
           pip install -e .
 
       - name: Setup extension
