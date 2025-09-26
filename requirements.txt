@@ -1,1 +1,0 @@
-ckanext-spatial @ git+https://github.com/ckan/ckanext-spatial.git#egg=ckanext-spatial

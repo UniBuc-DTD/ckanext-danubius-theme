@@ -4,26 +4,31 @@ version = "0.0.1"
 description = "Custom theme for the CKAN instance of the DANUBIUS consortium"
 readme = "README.md"
 authors = [
-    {name = "Gabriel Majeri", email = "gabriel.majeri@unibuc.ro"},
-    {name = "Gabriel Pană"}
+    { name = "Gabriel Majeri", email = "gabriel.majeri@unibuc.ro" },
+    { name = "Gabriel Pană" },
 ]
-license = {text = "AGPL"}
+license = { text = "AGPL" }
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 
-keywords = [ "CKAN", "DANUBIUS", ]
-dependencies = []
+keywords = ["CKAN", "DANUBIUS"]
+dependencies = [
+    "ckanext-spatial @ git+https://github.com/ckan/ckanext-spatial.git#egg=ckanext-spatial",
+]
+
+[project.optional-dependencies]
+dev = ["pytest-ckan"]
 
 [project.urls]
 Homepage = "https://github.com/UniBuc-DTD/ckanext-danubius-theme"
 
 [project.entry-points."ckan.plugins"]
 danubius_theme = "ckanext.danubius_theme.plugin:DanubiusThemePlugin"
+danubius_sensorthings_harvester = "ckanext.danubius_theme.harvesters.sensorthings_harvester:SensorThingsHarvester"
 
 [build-system]
 requires = ["setuptools"]
@@ -31,8 +36,8 @@ build-backend = "setuptools.build_meta"
 
 [tool.pytest.ini_options]
 filterwarnings = [
-        "ignore::sqlalchemy.exc.SADeprecationWarning",
-        "ignore::sqlalchemy.exc.SAWarning",
-        "ignore::DeprecationWarning",
+    "ignore::sqlalchemy.exc.SADeprecationWarning",
+    "ignore::sqlalchemy.exc.SAWarning",
+    "ignore::DeprecationWarning",
 ]
 addopts = "--ckan-ini test.ini"
