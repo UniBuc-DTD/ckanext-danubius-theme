@@ -28,7 +28,6 @@ Homepage = "https://github.com/UniBuc-DTD/ckanext-danubius-theme"
 
 [project.entry-points."ckan.plugins"]
 danubius_theme = "ckanext.danubius_theme.plugin:DanubiusThemePlugin"
-danubius_sensorthings_harvester = "ckanext.danubius_theme.harvesters.sensorthings_harvester:SensorThingsHarvester"
 
 [build-system]
 requires = ["setuptools"]
