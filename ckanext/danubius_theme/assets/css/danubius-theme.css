@@ -130,6 +130,11 @@
   border-top: 1px solid rgb(204, 204, 204);
 }
 
+/* Ensure text on modal pages (such as confirm delete page) is readable. */
+.row[role="main"] {
+  background: #eee url("../../../base/images/bg.png");
+}
+
 /* ====================================
    The footer at the bottom of the site
    ==================================== */
